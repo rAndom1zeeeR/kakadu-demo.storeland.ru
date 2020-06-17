@@ -1,0 +1,91 @@
+<div class="ajax__cart">
+  {% IF FORM_NOTICE %}<h4 class="title {% IF FORM_NOTICE_IS_GOOD %}success{% ELSE %}warning{% ENDIF %}">{FORM_NOTICE}</h4>{% ENDIF %}
+  <div class="ajax__items">
+    {% FOR cart_items %}
+      {% IF cart_items.GOODS_MOD_ID = FORM_GOODS_MOD_ID %}
+      <div class="ajax__item">
+        <div class="ajax__image">
+          <a href="{cart_items.GOODS_URL}" title="{cart_items.GOODS_NAME}"><img src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-small.png?design=tobacco{% ELSE %}{cart_items.GOODS_IMAGE_SMALL}{% ENDIF %}" class="goods-image-small" alt="{cart_items.GOODS_NAME}"></a>
+        </div>
+        <div class="ajax__info">
+          <div class="ajax__name"><a href="{cart_items.GOODS_URL}" title="{cart_items.GOODS_NAME}">{cart_items.GOODS_NAME}</a></div>
+          {% IF cart_items.GOODS_DESCRIPTION_SHORT %}<div class="ajax__desc">{cart_items.GOODS_DESCRIPTION_SHORT}</div>{% ENDIF %}
+          {% IFNOT cart_items.distinctive_properties_empty %}<div class="ajax__mod">({% FOR distinctive_properties %}{cart_items.distinctive_properties.NAME}: {cart_items.distinctive_properties.VALUE}{% IFNOT cart_items.distinctive_properties.last %}, {% ENDIF %}{% ENDFOR %})</div>{% ENDIF %}
+          <div class="ajax__quantity">
+            <span class="ajax__label">Количество:</span>
+            <strong>{cart_items.ORDER_LINE_QUANTITY}</strong>
+          </div>
+          <div class="ajax__price">
+            <span class="ajax__label">Стоимость:</span>
+            <strong class="price {CURRENCY_CHAR_CODE}">{cart_items.ORDER_LINE_PRICE_NOW | money_format}</strong>
+          </div>
+          <div class="ajax__total">
+            <span class="ajax__label">Сейчас в корзине</span>
+            <strong class="ajax__count">{CART_COUNT_TOTAL}</strong>
+            <span>товар{CART_COUNT_TOTAL | gen_word_end("","а","ов")}</span>
+          </div>
+        </div>
+      </div>
+      {% ENDIF %}
+    {% ENDFOR %}
+  </div>
+  <div class="ajax__buttons">
+    <button type="submit" class="button button3 fancyModalClose" id="quickform-close">Продолжить</button>
+    <button type="button" class="button quickform" id="quickform-order" onclick="document.location='{CART_URL}';return false;">В корзину</button>
+  </div>
+</div>
+
+<!-- Блок для обновления данных корзины. Не виден пользователю -->
+<div style="display:none;" id="newCartLabel">
+  <i class="material-icons">local_mall</i>
+  <div>
+    <div class="cart__title">Корзина</div>
+    {% IF CART_COUNT_TOTAL > 0 %}
+    <div class="cart__full">
+      <span class="cart__totalSum totalSum">{CART_SUM_NOW_WITH_DISCOUNT | money_format }</span>
+      <span class="separator">|</span>
+      <span class="cart__count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
+      <span class="cart__measure">шт.</span>
+    </div>
+    {% ENDIF %}
+  </div>
+</div>
+<!-- Блок для обновления данных корзины. Не виден пользователю -->
+<div style="display:none;" id="newCartCount">
+  <span class="count" data-count="{CART_COUNT_TOTAL}">{CART_COUNT_TOTAL}</span>
+</div>
+<div style="display:none;" id="newCartData">
+  <div class="goods__items">
+    {% FOR cart_items %}
+    <div class="goods__item" data-id="{cart_items.GOODS_ID}">
+      <div class="goods__image">
+        <a href="{cart_items.GOODS_URL}" title="{cart_items.GOODS_NAME}"><img src="{% IF cart_items.GOODS_IMAGE_EMPTY %}{ASSETS_IMAGES_PATH}no-photo-icon.png?design=tobacco{% ELSE %}{cart_items.GOODS_IMAGE_ICON}{% ENDIF %}" alt="{cart_items.GOODS_NAME}" class="goods-image-icon" /></a>
+      </div>
+      <div class="goods__shop">
+        <!-- Название -->
+        <a href="{cart_items.GOODS_URL}" class="goods__name" title="{cart_items.GOODS_NAME}"><span>{cart_items.GOODS_NAME}</span></a>
+        {% IFNOT cart_items.distinctive_properties_empty %}<div class="goods__mod">({% FOR distinctive_properties %}{cart_items.distinctive_properties.NAME}: {cart_items.distinctive_properties.VALUE}{% IFNOT cart_items.distinctive_properties.last %}, {% ENDIF %}{% ENDFOR %})</div>{% ENDIF %}
+        <!-- Цена -->
+        <div class="goods__priceBox">
+          <div class="goods__count">{cart_items.ORDER_LINE_QUANTITY}</div>
+          <div class="goods__price" data-price="{cart_items.GOODS_MOD_PRICE_NOW}">{cart_items.GOODS_MOD_PRICE_NOW | money_format}</div>
+        </div>
+        <!-- Удаление -->
+        <a href="{cart_items.ORDER_LINE_DELETE_URL}" data-count="{cart_items.ORDER_LINE_QUANTITY}" class="goods__remove remove x" title="Удалить позицию" onclick="removeFromCart($(this))"></a>
+      </div>
+    </div>
+    {% ENDFOR %}
+  </div>
+  <div class="goods__empty">Корзина покупок пуста. Вы можете выбрать нужный товар из <a href="{CATALOG_URL}" title="Перейти в каталог">каталога</a>.</div>
+  <div class="goods__buttons">
+    <a href="{CART_TRUNCATE_URL}" onclick="removeFromCartAll($(this))" class="button button3 removeAll" title="Очистить список сравнения"><span>Очистить список</span></a>
+    <a href="{CART_URL}" class="button" title="Перейти в Корзину">В Корзину</a>
+  </div>
+</div>
+<!-- Обновление данных корзины -->
+<script>
+$('#menu .cart .label').html($('#newCartLabel').html());
+$('.cart__count').html($('#newCartCount').html());
+$('.cart__goods').html($('#newCartData').html());
+$('.fancyModalClose').click(function(){$.fancybox.close();});
+</script>
