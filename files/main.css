@@ -1389,16 +1389,23 @@ footer .footer__block {width: 100%;}
 
 /*** Быстрый просмотр ***/
 .fancybox-content.productViewBlock {max-width: 800px;padding: 0 !important;}
+.fancybox-content .productView {margin: 0;}
 .fancybox-content .productView__imageBox {width: 40%;}
-.fancybox-content .productView__shop {width: 60%;padding: 0 0 0 30px;}
+.fancybox-content .thumblist.show {display: none;}
+.fancybox-content .productView__inner {width: 60%;padding-left: 30px;}
+.fancybox-content .productView__shop {width: 100%;padding: 0;}
 .fancybox-content .productView__actions {width: 100%;margin-top: 30px;}
 .fancybox-content .productView__delivery {display: none;}
 .fancybox-content .features__items {display: none;}
 .fancybox-content .productView__ratings {display: none;}
+.fancybox-content .related {display: none;}
+.fancybox-content .productView__description {display: none;}
+.fancybox-content .productView__opinion {display: none;}
 .fancybox-content .goodsModificationsProperty .selectBox:after {display: none;}
 
 /*** Выбор модификации ***/
 .productView.productViewMod {width: 400px;margin: 0;}
+.productViewMod .productView__inner {padding: 0;width: 100%;}
 .productViewMod .productView__imageBox {display: none;}
 .productViewMod .features__items {display: none;}
 .productViewMod .productView__delivery {display: none;}
@@ -1426,9 +1433,6 @@ footer .footer__block {width: 100%;}
 
 /*** Товар ***/
 .productView {display: flex;flex-wrap: wrap;align-items: flex-start;margin-bottom: 30px;padding: 30px;background: #fff;border-radius: 4px;}
-@media all and (max-width: 767px) {
-.productView {padding: 15px;}
-}
 .productView__box {display: flex;flex-wrap: wrap;align-items: center;width: 100%;margin-bottom: 30px;padding-bottom: 20px;border-bottom: 1px solid #ececef;}
 .productView__name {width: 100%;margin-bottom: 15px;}
 .productView__name h1 {font-size: 30px;line-height: 1;}
@@ -1437,10 +1441,22 @@ footer .footer__block {width: 100%;}
 .productView__links a:before {color: #7d1982;margin-right: 5px;}
 .productView__links a span {display: inline-block;vertical-align: middle;font-size: 14px;color: #4d4d4d;}
 .productView__links a:hover span, .productView__links a.added span, .productView__links a.added:before {color: #ef5a28;}
+.rating__label {display: inline-block;vertical-align: middle;font-size: 14px;color: #4d4d4d;text-decoration: underline;cursor: pointer;}
+.rating__label:hover {color: #ef5a28;}
+.rating__label .label {margin-left: 10px;}
+.productView__text {margin-bottom: 30px;}
+.productView__inner {width: 70%;display: flex;flex-wrap: wrap;}
+.productView__imageBox {width: 30%;}
+.productView__shop {width: 55%;padding: 0 30px;}
+.productView__actions {width: 45%;border-radius: 4px;border: 1px solid #ececef;}
 @media all and (max-width: 991px) {
+.productView__imageBox, .productView__shop, .productView__actions, .productView__inner {width: 100%;}
+.productView__shop {padding: 30px 0 0 0;}
+.productView__actions {margin: 30px 0 0 0;}
 .productView__box {border: 0;margin: 0;}
 }
 @media all and (max-width: 767px) {
+.productView {padding: 15px;}
 .productView__links {margin-right: 30px;}
 .productView__links a {margin-right: 0px;}
 .productView__links a + a {margin-left: 10px;}
@@ -1453,18 +1469,6 @@ footer .footer__block {width: 100%;}
 @media all and (max-width: 481px) {
 .productView__ratings {width: 100%;margin: 0 0 10px 0;}
 .productView__goodsModArtNumber {width: auto;margin: 0;}
-}
-.rating__label {display: inline-block;vertical-align: middle;font-size: 14px;color: #4d4d4d;text-decoration: underline;cursor: pointer;}
-.rating__label:hover {color: #ef5a28;}
-.rating__label .label {margin-left: 10px;}
-.productView__text {margin-bottom: 30px;}
-.productView__shop {width: 40%;padding: 0 30px;}
-.productView__actions {width: 30%;border-radius: 4px;border: 1px solid #ececef;}
-.productView__imageBox {width: 30%;}
-@media all and (max-width: 991px) {
-.productView__imageBox, .productView__shop, .productView__actions {width: 100%;}
-.productView__shop {padding: 30px 0 0 0;}
-.productView__actions {margin: 30px 0 0 0;}
 }
 /** Главное изображение **/
 .productView__image {display: flex;align-items: center;justify-content: center;position: relative;border-radius: 4px;border: 1px solid #ececef;min-height: 324px;}

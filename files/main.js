@@ -2118,11 +2118,9 @@ function quickView() {
 $(document).ready(function(){
   $.fn.getColumnContent = function() {
     var block = ($(this).length && $(this).hasClass('productViewBlock') ? $(this).filter('.productViewBlock') : $('.productViewBlock:eq(0)'));
-    block.find('#main').each(function(){
+    block.each(function(){
       // Удаляем все блоки, которые не отображаются в быстром просмотре.
-      if(!$(this).hasClass('productView__imageBox') && !$(this).hasClass('productView__shop') && !$(this).hasClass('productView__actions') && !$(this).hasClass('productView__box')) {
-        $(this).remove();
-      }
+      $(this).children().not('.productView').remove();
     });
     return block;
   }
@@ -2225,11 +2223,9 @@ function quickViewMod() {
 $(document).ready(function(){
   $.fn.getColumnContent = function() {
     var block = ($(this).length && $(this).hasClass('productViewBlock') ? $(this).filter('.productViewBlock') : $('.productViewBlock:eq(0)'));
-    block.find('#main').each(function(){
+    block.each(function(){
       // Удаляем все блоки, которые не отображаются в быстром просмотре.
-      if(!$(this).hasClass('productView__imageBox') && !$(this).hasClass('productView__shop') && !$(this).hasClass('productView__actions') && !$(this).hasClass('productView__box')) {
-        $(this).remove();
-      }
+      $(this).children().not('.productView').remove();
     });
     return block;
   }
