@@ -2457,7 +2457,7 @@ function OrderScripts() {
 
 // Корзина
 function cartQuantity(){
-  $('.quantity').change(function(){
+  $('.quantity').change($.debounce(300, function(){
     var quantity = $(this);
     var qVal = $(this).val();
     if(qVal >= '1'){
@@ -2491,7 +2491,7 @@ function cartQuantity(){
       $(this).val('1');
       $(this).trigger('change');
     }
-  });
+  }));
   // Счетчик + - для корзины
   $('.qty__plus').click(function(){
     var 
