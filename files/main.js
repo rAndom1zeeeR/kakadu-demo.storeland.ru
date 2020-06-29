@@ -1268,8 +1268,6 @@ $('.add-compare').off('click').click(function(){
     }
     return flag;
   });
-  $('.compare__goods .goods__empty').hide();
-  $('.compare__goods .goods__buttons').css('display', 'flex');
   
   // Если в ссылке присутствует идентификатор, который мы можем узнать только вытащив его с текущей страницы
   if( /GET_GOODS_MOD_ID_FROM_PAGE/.test(requestUrl)) {
@@ -1438,8 +1436,6 @@ $('.add-favorites').off('click').click(function(){
     }
     return flag;
   });
-  $('.favorites__goods .goods__empty').hide();
-  $('.favorites__goods .goods__buttons').css('display', 'flex');
   
   // Если в ссылке присутствует идентификатор, который мы можем узнать только вытащив его с текущей страницы
   if( /GET_GOODS_MOD_ID_FROM_PAGE/.test(requestUrl)) {
