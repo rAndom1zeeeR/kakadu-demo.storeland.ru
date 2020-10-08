@@ -373,9 +373,8 @@
               {% ENDIF %}
             </div>
             <div class="product__shop {% IF related_goods.IS_HAS_IN_COMPARE_LIST || related_goods.IS_HAS_IN_FAVORITES_LIST %}added{% ENDIF %}">
-              <meta itemprop="name" content="{related_goods.NAME}">
               <meta itemprop="description" content="{% IF related_goods.DESCRIPTION_SHORT %}{related_goods.DESCRIPTION_SHORT}{% ELSE %}Описание отсутствует{% ENDIF %}">
-              <div class="product__name"><a href="{related_goods.URL_MIN_PRICE_NOW | url_amp}" title="{related_goods.NAME}" itemprop="url">{related_goods.NAME}</a></div>
+	            <div class="product__name"><a href="{related_goods.URL_MIN_PRICE_NOW | url_amp}" title="{related_goods.NAME}" itemprop="url"><span itemprop="name">{related_goods.NAME}</span></a></div>
               <!-- Добавление товара в корзину -->
               <div class="product__cart">
                 <!-- Цена -->
@@ -684,9 +683,8 @@
               {% ENDIF %}
             </div>
             <div class="product__shop {% IF related_views_goods.IS_HAS_IN_COMPARE_LIST || related_views_goods.IS_HAS_IN_FAVORITES_LIST %}added{% ENDIF %}">
-              <meta itemprop="name" content="{related_views_goods.NAME}">
               <meta itemprop="description" content="{% IF related_views_goods.DESCRIPTION_SHORT %}{related_views_goods.DESCRIPTION_SHORT}{% ELSE %}Описание отсутствует{% ENDIF %}">
-              <div class="product__name"><a href="{related_views_goods.URL_MIN_PRICE_NOW | url_amp}" title="{related_views_goods.NAME}" itemprop="url">{related_views_goods.NAME}</a></div>
+	            <div class="product__name"><a href="{related_views_goods.URL_MIN_PRICE_NOW | url_amp}" title="{related_views_goods.NAME}" itemprop="url"><span itemprop="name">{related_views_goods.NAME}</span></a></div>
               <!-- Добавление товара в корзину -->
               <div class="product__cart">
                 <!-- Цена -->

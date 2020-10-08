@@ -95,9 +95,8 @@
                 {% ENDIF %}
               </div>
               <div class="product__shop {% IF goods.IS_HAS_IN_COMPARE_LIST || goods.IS_HAS_IN_FAVORITES_LIST %}added{% ENDIF %}">
-                <meta itemprop="name" content="{goods.NAME}">
                 <meta itemprop="description" content="{% IF goods.DESCRIPTION_SHORT %}{goods.DESCRIPTION_SHORT}{% ELSE %}Описание отсутствует{% ENDIF %}">
-                <div class="product__name"><a href="{goods.URL_MIN_PRICE_NOW | url_amp}" title="{goods.NAME}" itemprop="url">{goods.NAME}</a></div>
+	              <div class="product__name"><a href="{goods.URL_MIN_PRICE_NOW | url_amp}" title="{goods.NAME}" itemprop="url"><span itemprop="name">{goods.NAME}</span></a></div>
                 <!-- Добавление товара в корзину -->
                 <div class="product__cart">
                   <!-- Цена -->
@@ -250,7 +249,7 @@
               </div>
               <div class="product__shop {% IF goods.IS_HAS_IN_COMPARE_LIST || goods.IS_HAS_IN_FAVORITES_LIST %}added{% ENDIF %}">
                 <div class="product__name">
-                  <a href="{goods.URL_MIN_PRICE_NOW | url_amp}" title="{goods.NAME}" itemprop="name">{goods.NAME}</a>
+	                <a href="{goods.URL_MIN_PRICE_NOW | url_amp}" title="{goods.NAME}" itemprop="url"><span itemprop="name">{goods.NAME}</span></a>
                   {% IF goods.DESCRIPTION_SHORT %}
                   <div class="product__text" itemprop="description">{goods.DESCRIPTION_SHORT}</div>
                   {% ELSE %}
