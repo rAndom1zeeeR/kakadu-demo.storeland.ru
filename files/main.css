@@ -904,14 +904,11 @@ footer .footer__block {width: 100%;}
 .noty__error a {color: #ef5a28;}
 
 /*** Наверх ***/
-#to {position: fixed;bottom: 15px;right: 15px;z-index: 29;padding: 0px;cursor: pointer;display: flex;flex-direction: column;align-items: flex-end;justify-content: flex-end;}
-#to > div {margin-top: 15px;}
-#to > div span {display: flex;align-items: center;justify-content: center;width: 50px;height: 50px;background: #f8cd00;color: #6b166f;border-radius: 100%;opacity: 0.8;}
-#to > div:hover span {cursor: pointer;opacity: 1;}
-#toTop {transform: rotate(-90deg);}
+#toTop {position: fixed;bottom: 15px;right: 15px;z-index: 29;padding: 0px;cursor: pointer;display: flex;flex-direction: column;align-items: flex-end;justify-content: flex-end;}
+#toTop span {transform: rotate(-90deg);}
 @media all and (min-width: 1366px) {
-#to {bottom: 0px;right: 0px;height: 100vh;padding: 15px;}
-#to:hover {background: rgba(255, 255, 255, 0.5);}
+#toTop {bottom: 0px;right: 0px;height: 100vh;padding: 15px;}
+#toTop:hover {background: rgba(255, 255, 255, 0.5);}
 }
 
 /*** Описание главной ***/
@@ -1922,6 +1919,13 @@ footer .footer__block {width: 100%;}
 .delivery .orderStageDeliveryListTable .cell2 .pricefield {margin: 15px 0 0 0;}
 .delivery .orderStageDeliveryListTable .zones {margin: 15px 0;padding-left: 15px;}
 .delivery .orderStageDeliveryListTable .zones .zones-header {display: inline-block;margin-bottom: 10px;}
+
+
+/*Выбор цветовой схемы*/
+.modal-theme {padding: 2rem;}
+.modal-theme__list {text-align: center;}
+.modal-theme__list-item {margin-top: 2rem;}
+.modal-theme__list-item .button {margin: 0 1rem 1rem 0;}
 
 
 
